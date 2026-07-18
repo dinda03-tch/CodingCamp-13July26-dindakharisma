@@ -1,0 +1,101 @@
+/* =============================================
+   responsive.css — Life Dashboard
+   ============================================= */
+
+/* ── Tablet ≤ 1024px ────────────────────────── */
+@media (max-width: 1024px) {
+  .stats-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .search-input { width: 170px; }
+  .focus-timer__display { font-size: 54px; }
+}
+
+/* ── Mobile ≤ 768px ─────────────────────────── */
+@media (max-width: 768px) {
+  :root { --sidebar-width: 0px; }
+
+  .sidebar {
+    transform: translateX(-260px);
+    width: 260px;
+    box-shadow: var(--shadow-lg);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar__toggle { display: flex; }
+
+  .main {
+    margin-left: 0;
+    padding: 18px 16px;
+  }
+
+  /* Header stacks vertically */
+  .main__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header__right {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .search-input { flex: 1; width: 100%; }
+  .btn--primary { flex: 1; justify-content: center; }
+
+  /* Stats 2 col */
+  .stats-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  /* Timer */
+  .focus-timer__header  { flex-direction: column; align-items: flex-start; }
+  .focus-timer__display { font-size: 48px; }
+  .focus-timer__mode    { flex-wrap: wrap; }
+
+  /* Task actions always visible on touch */
+  .task-card__actions { opacity: 1; }
+
+  /* Todo section header stacks */
+  .todo-section__header { flex-direction: column; align-items: flex-start; }
+
+  /* Quick links auto-fill smaller */
+  .quick-links__grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 10px;
+  }
+
+  /* Modal form row single col */
+  .form-row { grid-template-columns: 1fr; }
+
+  /* Toast full-width */
+  .toast-container { left: 16px; right: 16px; bottom: 16px; }
+  .toast { min-width: unset; }
+}
+
+/* ── Small mobile ≤ 480px ───────────────────── */
+@media (max-width: 480px) {
+  .main { padding: 14px 12px; }
+
+  .greeting__text    { font-size: 18px; }
+  .clock__time       { font-size: 30px; }
+
+  .stat-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px; padding: 12px;
+  }
+  .stat-card__icon   { font-size: 20px; }
+  .stat-card__number { font-size: 20px; }
+
+  .focus-timer__display { font-size: 40px; }
+  .focus-timer__controls { flex-direction: column; width: 100%; }
+  .timer-btn { width: 100%; text-align: center; justify-content: center; }
+
+  .quick-links__grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 8px;
+  }
+
+  .modal { border-radius: var(--radius-lg); }
+  .modal__header { padding: 16px 16px 0; }
+  .modal__form   { padding: 0 16px 16px; }
+}

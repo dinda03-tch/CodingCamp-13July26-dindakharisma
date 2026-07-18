@@ -330,8 +330,7 @@ const App = (() => {
     timer.currentMode = mode;
     timer.remaining   = timer.modes[mode];
 
-    // Update both old .mode-btn and new .timer-tab
-    document.querySelectorAll('.mode-btn, .timer-tab').forEach(btn => {
+    document.querySelectorAll('.mode-btn').forEach(btn => {
       const active = btn.dataset.mode === mode;
       btn.classList.toggle('active', active);
       btn.setAttribute('aria-pressed', active);
@@ -383,8 +382,7 @@ const App = (() => {
       ?.addEventListener('click', _startTimer);
     document.getElementById('timerResetBtn')
       ?.addEventListener('click', _resetTimer);
-    // Support both old .mode-btn and new .timer-tab class names
-    document.querySelectorAll('.mode-btn, .timer-tab').forEach(btn =>
+    document.querySelectorAll('.mode-btn').forEach(btn =>
       btn.addEventListener('click', () => _switchTimerMode(btn.dataset.mode))
     );
     document.getElementById('timerSettingsBtn')
@@ -452,20 +450,7 @@ const App = (() => {
     document.getElementById('linkModalOverlay')
       ?.addEventListener('click', e => { if (e.target === e.currentTarget) UI.closeLinkModal(); });
 
-    /* ── Top nav category buttons (new layout) ── */
-    document.querySelectorAll('.cat-btn').forEach(btn =>
-      btn.addEventListener('click', () => {
-        state.activeCategory = btn.dataset.category;
-        // Update active state on cat-btns
-        document.querySelectorAll('.cat-btn').forEach(b =>
-          b.classList.toggle('active', b.dataset.category === state.activeCategory)
-        );
-        UI.setPageTitle(state.activeCategory);
-        _refreshTodos();
-      })
-    );
-
-    /* ── Sidebar nav (legacy, hidden on new layout) ── */
+    /* ── Sidebar nav ─────────────── */
     document.querySelectorAll('.nav-item').forEach(item =>
       item.addEventListener('click', () => {
         state.activeCategory = item.dataset.category;

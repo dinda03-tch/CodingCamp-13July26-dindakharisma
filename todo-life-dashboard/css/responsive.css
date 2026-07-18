@@ -1,0 +1,53 @@
+/* =============================================
+   responsive.css — Life Dashboard
+   ============================================= */
+
+/* ── Tablet ≤ 1024px ────────────────────────── */
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: -20px;
+  }
+  .hero__clock { font-size: 52px; }
+}
+
+/* ── Mobile ≤ 768px ─────────────────────────── */
+@media (max-width: 768px) {
+  .topnav__categories { display: none; }
+
+  .hero { padding: 28px 16px 40px; }
+  .hero__clock   { font-size: 44px; letter-spacing: -1.5px; }
+  .hero__greeting { font-size: 20px; }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    margin-top: -16px;
+    padding: 0 16px 24px;
+  }
+
+  .task-list { max-height: 320px; }
+  .task-card__actions { opacity: 1; }
+
+  .quick-links-section { padding: 0 16px; }
+  .quick-links__grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+
+  .form-row { grid-template-columns: 1fr; }
+  .toast-container { left: 12px; right: 12px; bottom: 12px; }
+  .toast { min-width: unset; }
+}
+
+/* ── Small mobile ≤ 480px ───────────────────── */
+@media (max-width: 480px) {
+  .hero__clock   { font-size: 36px; }
+  .hero__greeting { font-size: 17px; }
+
+  .timer-display { font-size: 56px; }
+  .timer-controls { width: 100%; }
+  .timer-btn { flex: 1; justify-content: center; text-align: center; }
+
+  .quick-links__grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .modal { border-radius: var(--radius-lg); }
+  .modal__header { padding: 14px 14px 0; }
+  .modal__form   { padding: 0 14px 14px; }
+}
